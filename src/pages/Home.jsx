@@ -1,32 +1,17 @@
 import Barchart from "../components/barchart";
-import "./home.css";
-// import { data } from "../chart_datas";
-// import { sexdata } from "../homme_femme_chart";
-// import { useState } from "react";
-import Linechart from "../components/linechart";
+
 import Piechart from "../components/piechart";
-import Leftsidebar from "../components/leftsidebar";
-import axios from "axios";
-import { useState } from "react";
+import Linechart from "../components/linechart";
+import RightBar from "../components/right-bar-filter/index";
+import ChatBot from "../components/chatBot/index";
+import Leftsidebar from "../leftsidebar"
 
 const Home = () => {
-  const [inputprompt, setinputprompt] = useState("");
-  const [answer, setanswer] = useState("");
-  const postprompt = async () => {
-    try {
-      const response = await axios.post("http://localhost:5000/openai", {
-        prompt: inputprompt,
-      });
-      setanswer(response.data.response.content);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   return (
     <div className=" bg-white hero flex gap-2 w-full pl-5 mt-20">
       <Leftsidebar />
       <section className=" flex-1 flex flex-col place-content-between items-center gap-2 p-5">
-        <button onClick={postprompt} className=" relative border">
+        <button className=" relative border">
           <svg
             width="24"
             height="24"
@@ -45,13 +30,9 @@ const Home = () => {
             type="text"
             placeholder="rechercher un produit"
             className=" pl-10 rounded-lg h-8"
-            value={inputprompt}
-            onChange={(e) => {
-              setinputprompt(e.target.value);
-            }}
           />
         </button>
-        <p className=" px-10">{answer}</p>
+        <p className=" px-10">kfkdsl</p>
         <div className=" bg-gray-100 w-[90%] h-1/2 flex flex-col items-center place-content-around">
           <p>retours par wilayas</p>
           <div className=" h-[90%] w-[100%] bg-[#F2F2F7]">
@@ -68,6 +49,15 @@ const Home = () => {
         </section>
       </section>
       <section className=" w-[20%] h-[100vh]"></section>
+
+      <div className="h-[100vh]  hero flex gap-2 w-full">
+        <section className=" w-[10%] "></section>
+        <section className="  flex-1"></section>
+        <section className="h-[100vh] relative  bg-[#F2F2F7] p-2">
+          <RightBar />
+          <ChatBot />
+        </section>
+      </div>
     </div>
   );
 };
