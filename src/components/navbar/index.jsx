@@ -1,6 +1,5 @@
 import logo1 from "../../assets/images/moon.svg";
 import logo2 from "../../assets/images/handSHake.svg";
-import logo3 from "../../assets/images/photo.svg";
 import logo4 from "../../assets/images/logout.svg";
 const index = () => {
   return (
